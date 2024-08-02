@@ -18,7 +18,7 @@ Our task is to classify users based on whether they are likely to make a purchas
 
 We are given some SQL code to run the model
 
-'''sql
+```sql
 CREATE OR REPLACE MODEL `ecommerce.classification_model`
 OPTIONS
 (
@@ -51,4 +51,4 @@ FROM
   GROUP BY fullvisitorid)
   USING (fullVisitorId)
 ;
-'''
+```
