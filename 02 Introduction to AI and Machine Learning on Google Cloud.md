@@ -27,6 +27,7 @@ Supervised tasks are generally more straightforward to score or assess performan
 BigQuery strips away a lot of the steps required for ML modeling. Things like One Hot Encoding for categorical variables can be done automatically. The actual modeling process can be done using SQL. Visually, this reminds me of Python gridsearch pipelines where you specify the parameters, except in this case BigQuerry isn't iterating over several options.
 
 BigQuery:
+
 ![image](https://github.com/user-attachments/assets/70a7c656-9f63-4cb6-a77c-2e4ee9ba43da)
 
 GridSearchCV in Python, [image source](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvitalflux.com%2Fwp-content%2Fuploads%2F2020%2F08%2FScreenshot-2020-08-29-at-6.49.20-PM.png&f=1&nofb=1&ipt=780a58979eddeea13f98816e2b2ca9ab6fbef261cbf980ff467a48c9fdca7cb6&ipo=images)
