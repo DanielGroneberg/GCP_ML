@@ -15,3 +15,9 @@ Analytical workloads would be more like querrying potentially very large batches
 I also looked into SQL vs NoSQL a bit: it sounds like NoSQL is just a different storage paradigm which can use JSON etc. for structuring. Not sure what the advantage of one or the other is yet, but I'm sure it'll come up.
 
 ![image](https://github.com/user-attachments/assets/6ed6c06e-8733-4fec-b5de-51818953a72f)
+
+## Machine learning basics:
+### Supervised vs unsupervised learning:
+
+
+![image](https://github.com/user-attachments/assets/6685d569-8ca8-48b8-8d62-26d966787e03)
