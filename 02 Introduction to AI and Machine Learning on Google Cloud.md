@@ -19,5 +19,6 @@ I also looked into SQL vs NoSQL a bit: it sounds like NoSQL is just a different 
 ## Machine learning basics:
 ### Supervised vs unsupervised learning:
 
+Supervised tasks are generally more straightforward to score or assess performance: if the goal is to predict house prices given a variety of features (# of rooms, location, etc.) it's easy to break these data into train/test sets, develop a model using the training set and score against the test set. Unsupervised tasks are more along the lines of pattern recognition within the data. With the same housing dataset, an unsupervised task might be deciding where to build a new grocery store based on geographic density, land values, etc. This would be an unsupervised task since there isn't a clear way to assess performance until after the store is built, and there is no pre-existing (labeled) feature for store revenue, etc.
 
 ![image](https://github.com/user-attachments/assets/6685d569-8ca8-48b8-8d62-26d966787e03)
