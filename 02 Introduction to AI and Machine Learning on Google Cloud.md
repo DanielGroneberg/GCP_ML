@@ -8,7 +8,7 @@ Depending on how frequently the data needs to be accessed, you should choose an 
 ![image](https://github.com/user-attachments/assets/d394da8b-814c-44d7-bffe-aeaf67337938)
 
 ### Structured data and relevant products
-SQL is ideal for structured data: it's literally the _Structured Querry Language!_. I did some basic research, and it sounds like transactional workloads are more along the lines of continual flows of data e.g. continual sales taking place around the world. It's for streams of data.
+SQL is ideal for structured data: it's literally the _Structured Querry Language!_ I did some basic research, and it sounds like transactional workloads are more along the lines of continual flows of data e.g. continual sales taking place around the world. It's for streams of data.
 
 Analytical workloads would be more like querrying potentially very large batches of data for analysis, as the name implies. It's possible that analytical workflows would be querrying much larger amounts of data in a given querry, since transactional is dealing with a more-or-less continual flow vs large fetching operations all at once.
 
