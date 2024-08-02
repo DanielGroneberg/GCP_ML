@@ -165,3 +165,7 @@ predicted_will_buy_on_return_visit_probs.label: the binary classifier for yes / 
 predicted_will_buy_on_return_visit_probs.prob: the confidence the model has in it's prediction (1 = 100%)`
 
 In simpler terms, there is now a (slightly redundant) probability given for whether each user will/will not return to complete their order.
+
+![image](https://github.com/user-attachments/assets/fef69bd0-4931-4f74-b175-c13a0eaf2a0c)
+
+With this, we could select the top `n` users by probability and prioritize them for marketing, or whatever other method we would use to try to get them to return to the site. According to the lab, "Targeting the top 6% of first-time increases marketing ROI by 9x vs targeting them all!" So clearly, a little analysis can make marketing efforts significantly more efficient.
