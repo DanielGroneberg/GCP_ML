@@ -169,3 +169,87 @@ In simpler terms, there is now a (slightly redundant) probability given for whet
 ![image](https://github.com/user-attachments/assets/fef69bd0-4931-4f74-b175-c13a0eaf2a0c)
 
 With this, we could select the top `n` users by probability and prioritize them for marketing, or whatever other method we would use to try to get them to return to the site. According to the lab, "Targeting the top 6% of first-time increases marketing ROI by 9x vs targeting them all!" So clearly, a little analysis can make marketing efforts significantly more efficient.
+
+### Additional info
+
+Via the lab:
+"roc_auc is just one of the performance metrics available during model evaluation. Also available are accuracy, precision, and recall. Knowing which performance metric to rely on is highly dependent on what your overall objective or goal is."
+
+## CHALLENGE
+
+`Task
+Though our linear classification (logistic regression) model performed well after feature engineering, it may be too simple of a model to fully capture the relationship between the features and the label. Using the same dataset and labels as you did in Task 6 to create the model ecommerce.classification_model_2, your challenge is to create a XGBoost Classifier.
+
+Note: Hint : Use following options for Boosted_Tree_Classifier:
+1. L2_reg = 0.1
+2. num_parallel_tree = 8
+3. max_tree_depth = 10`
+
+This should be pretty straightforward. I'll use the same code as before, but change a couple of params where needed. (First, I'll read the doccumention for XGBoost in BigQuery)[https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-boosted-tree]:
+
+```sql
+CREATE OR REPLACE MODEL `ecommerce.classification_model_2`
+OPTIONS(MODEL_TYPE='BOOSTED_TREE_CLASSIFIER',
+        L2_REG = 0.1,
+        NUM_PARALLEL_TREE = 8,
+        MAX_TREE_DEPTH = 10,
+        labels = ['will_buy_on_return_visit']) AS
+
+WITH all_visitor_stats AS (
+SELECT
+  fullvisitorid,
+  IF(COUNTIF(totals.transactions > 0 AND totals.newVisits IS NULL) > 0, 1, 0) AS will_buy_on_return_visit
+  FROM `data-to-insights.ecommerce.web_analytics`
+  GROUP BY fullvisitorid
+)
+
+# add in new features
+SELECT * EXCEPT(unique_session_id) FROM (
+
+  SELECT
+      CONCAT(fullvisitorid, CAST(visitId AS STRING)) AS unique_session_id,
+
+      # labels
+      will_buy_on_return_visit,
+
+      MAX(CAST(h.eCommerceAction.action_type AS INT64)) AS latest_ecommerce_progress,
+
+      # behavior on the site
+      IFNULL(totals.bounces, 0) AS bounces,
+      IFNULL(totals.timeOnSite, 0) AS time_on_site,
+      totals.pageviews,
+
+      # where the visitor came from
+      trafficSource.source,
+      trafficSource.medium,
+      channelGrouping,
+
+      # mobile or desktop
+      device.deviceCategory,
+
+      # geographic
+      IFNULL(geoNetwork.country, "") AS country
+
+  FROM `data-to-insights.ecommerce.web_analytics`,
+     UNNEST(hits) AS h
+
+    JOIN all_visitor_stats USING(fullvisitorid)
+
+  WHERE 1=1
+    # only predict for new visits
+    AND totals.newVisits = 1
+    AND date BETWEEN '20160801' AND '20170430' # train 9 months
+
+  GROUP BY
+  unique_session_id,
+  will_buy_on_return_visit,
+  bounces,
+  time_on_site,
+  totals.pageviews,
+  trafficSource.source,
+  trafficSource.medium,
+  channelGrouping,
+  device.deviceCategory,
+  country
+);
+```
