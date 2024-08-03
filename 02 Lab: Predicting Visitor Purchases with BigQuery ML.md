@@ -267,6 +267,6 @@ What is the difference between a simple linear regressor like the first model an
 
 "Boosting is an ensemble technique where new models are added to correct the errors made by existing models. Models are added sequentially until no further improvements can be made. 
 
-Gradient boosting is an approach where new models are created that predict the residuals or errors of prior models and then added together to make the final prediction. It is called gradient boosting because it uses a gradient descent algorithm to minimize the loss when adding new models." ((Source))[https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/]
+Gradient boosting is an approach where new models are created that predict the residuals or errors of prior models and then added together to make the final prediction. It is called gradient boosting because it uses a gradient descent algorithm to minimize the loss when adding new models." (Source)[https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/]
 
-Unlike the logistic regressor
+Unlike the logistic regressor which only gets one attempt to fit to the data, XGBoost uses decision trees which are tailored to the weak spots present in previous iterations. While this model took much longer to fit, it does clearly allow for improved performance. In the context of a multi-million dollar ad campaign, this extra effort could be worth it.
