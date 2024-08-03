@@ -253,11 +253,11 @@ SELECT * EXCEPT(unique_session_id) FROM (
   country
 );
 ```
-As predicted, this model took a bit longer to train: about 8 minutes. Our new model has a ROC of .92
+As predicted, this model took a bit longer to train: about 8 minutes. Our new model has a ROC of .92, which is better than the ~.90 of the previous iteration. This improvment is significant given that the closer we get to 1, the harder small changes become.
 
 ![image](https://github.com/user-attachments/assets/50d9bca3-ffe2-45e5-aec1-591f78b31fb4)
 
-Making new predictions
+And of course, the final step is making new predictions with the new model:
 
 ![image](https://github.com/user-attachments/assets/6deeae3b-0a1e-4b29-8417-bfceb586f2aa)
 
