@@ -257,7 +257,16 @@ As predicted, this model took a bit longer to train: about 8 minutes. Our new mo
 
 ![image](https://github.com/user-attachments/assets/50d9bca3-ffe2-45e5-aec1-591f78b31fb4)
 
-And of course, the final step is making new predictions with the new model:
+And of course, since our model was an improvment, we need to make new predictions:
 
 ![image](https://github.com/user-attachments/assets/6deeae3b-0a1e-4b29-8417-bfceb586f2aa)
 
+### Discussion
+
+What is the difference between a simple linear regressor like the first model and XGBoost? Why did the latter take so much longer to train, yet yield better results? 
+
+"Boosting is an ensemble technique where new models are added to correct the errors made by existing models. Models are added sequentially until no further improvements can be made. 
+
+Gradient boosting is an approach where new models are created that predict the residuals or errors of prior models and then added together to make the final prediction. It is called gradient boosting because it uses a gradient descent algorithm to minimize the loss when adding new models." ((Source))[https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/]
+
+Unlike the logistic regressor
