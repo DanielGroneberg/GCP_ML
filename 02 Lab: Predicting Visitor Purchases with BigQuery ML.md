@@ -253,3 +253,11 @@ SELECT * EXCEPT(unique_session_id) FROM (
   country
 );
 ```
+As predicted, this model took a bit longer to train: about 8 minutes. Our new model has a ROC of .92
+
+![image](https://github.com/user-attachments/assets/50d9bca3-ffe2-45e5-aec1-591f78b31fb4)
+
+Making new predictions
+
+![image](https://github.com/user-attachments/assets/6deeae3b-0a1e-4b29-8417-bfceb586f2aa)
+
